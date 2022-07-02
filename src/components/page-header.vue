@@ -5,26 +5,33 @@
 			<span>Efficiency</span>
 		</div>
 		<div class="header-right">
-			<el-menu>
-				<el-sub-menu>
-					<template #title>{{ userId ? userId : 'login' }}</template>
-					<el-menu-item index="2-1">item one</el-menu-item>
-					<el-menu-item index="2-2">item two</el-menu-item>
-					<el-menu-item index="2-3">item three</el-menu-item>
-					<el-sub-menu index="2-4">
-						<template #title>item four</template>
-						<el-menu-item index="2-4-1">item one</el-menu-item>
-						<el-menu-item index="2-4-2">item two</el-menu-item>
-						<el-menu-item index="2-4-3">item three</el-menu-item>
-					</el-sub-menu>
-				</el-sub-menu>
-			</el-menu>
+			<nav-menu :navList="navList"/>			
 		</div>
 	</div>
 </template>
 
 <script setup>
 import svgIcon from "@/components/svg-icon.vue";
+import navMenu from '@/components/nav-menu.vue'
+
+const navList=[{
+	name:'login',
+	key:'/main/login',
+	item:[
+		{
+		name:111,
+		key: '111'
+	},
+	{
+		name:222,
+		key: '222'
+	},
+	{
+		name:333,
+		key: '333'
+	},
+	]
+}]
 </script>
 
 <style lang="scss" scoped>
@@ -49,12 +56,8 @@ import svgIcon from "@/components/svg-icon.vue";
 		display: flex;
 		align-items: center;
 
-		.el-menu {
-			width: 100%;
-			height: 100%;
-			background-color: #4472C4;
-			color: white;
-		}
+		
 	}
 }
+
 </style>

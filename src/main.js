@@ -5,6 +5,7 @@ import './assets/css/reset.scss'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import 'virtual:svg-icons-register'
+import '@/assets/css/global.scss'
 
 const app = createApp(App)
 app.use(router)
