@@ -5,31 +5,37 @@
 			<span>Efficiency</span>
 		</div>
 		<div class="header-right">
-			<nav-menu :navList="navList"/>			
+			<!-- <nav-menu :navList="navList"/>			 -->
+			<el-menu>
+				<el-sub-menu v-for="n in navList" :key="n.key">
+					<template #title>{{ n.name }}</template>
+					<el-menu-item v-for="i in n.item" :key="i.key">{{ i.name }}</el-menu-item>
+				</el-sub-menu>
+			</el-menu>
 		</div>
 	</div>
 </template>
 
 <script setup>
 import svgIcon from "@/components/svg-icon.vue";
-import navMenu from '@/components/nav-menu.vue'
+// import navMenu from '@/components/nav-menu.vue'
 
-const navList=[{
-	name:'login',
-	key:'/main/login',
-	item:[
+const navList = [{
+	name: 'login',
+	key: '/main/login',
+	item: [
 		{
-		name:111,
-		key: '111'
-	},
-	{
-		name:222,
-		key: '222'
-	},
-	{
-		name:333,
-		key: '333'
-	},
+			name: 111,
+			key: '111'
+		},
+		{
+			name: 222,
+			key: '222'
+		},
+		{
+			name: 333,
+			key: '333'
+		},
 	]
 }]
 </script>
@@ -56,8 +62,14 @@ const navList=[{
 		display: flex;
 		align-items: center;
 
-		
+		.el-menu {
+			height: 100%;
+
+			.el-sub-menu {
+				padding: 0 40px;
+			}
+		}
+
 	}
 }
-
 </style>
